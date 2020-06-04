@@ -7,19 +7,43 @@
   <input name="Recipient City" type="text" placeholder="Recipient City" required>
   <input name="Date1" type="date" placeholder="Date1" >
   <input name="Notes1" type="text" placeholder="Notes1" >
-  <input name="Notes2" type="text" placeholder="Notes2" >
+  <input name="Notes2" type="text" placeholder="Note2" >
   <input name="Date2" type="date" placeholder="Date2" >
   <input name="Notes3" type="text" placeholder="Notes3" >
   <input name="Url1" type="url" placeholder="Url1" >
   <input name="Notes4" type="text" placeholder="Notes4" >  
   <input name="Date3" type="date" placeholder="Date3" >
-  <tinput name="Notes5" type="text" placeholder="Notes5" >  
+  <input name="Notes5" type="text" placeholder="Notes5" >  
   <input name="Notes6" type="text" placeholder="Notes6" >
   <button type="submit">Send</button>
 </form>
 
 <script>
   const scriptURL = 'https://script.google.com/a/istayathome.io/d/1ucaUuCXDE3X4bUTg-g46D6-chUQRMz5ZX_Q3HhGwNB3CjwRC1xBoTz-O/edit'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>="Notes1" type="text" placeholder="Notes1" >
+  <input name="Notes2" type="text" placeholder="Notes2" >
+  <input name="Date2" type="date" placeholder="Date2" >
+  <input name="Notes3" type="text" placeholder="Notes3" >
+  <input name="Url1" type="url" placeholder="Url1" >
+  <input name="Notes4" type="text" placeholder="Notes4" >  
+  <input name="Date3" type="date" placeholder="Date3" >
+  <input name="Notes5" type="text" placeholder="Notes5" >  
+  <input name="Notes6" type="text" placeholder="Notes6" >
+  <button type="submit">Send</button>
+</form>
+<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+<script>
+  const scriptURL = 'https://script.google.com/a/istayathome.io/d/1ucaUuCXDE3X4bUTg-g46D6-chUQRMz5ZX_Q3HhGwNB3CjwRC1xBoTz-O/edit?uiv=2&mid=ACjPJvH7XZ01ewvUzTCpvVTpCAltmf_Bih-7N00Wu7Aq3GfXgZAo5DnUmdV4t3PS-QkWf_egYHDjwxHcSZJLbQXJt8B8yOpla71mRvgcIclGJJ1V_XdYaPAOA9W8BFvAqHVNPMA_lurk9rqdr1Uh7o5w07DNyjKj8gO2G8OyoBeDxTZQXbeIeXS-iCH3IQ&splash=yes'
   const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
